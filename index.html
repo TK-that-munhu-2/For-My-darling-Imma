@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffcccb;
+            text-align: center;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            width: 30%;
+            height: 100vh;
+            object-fit: cover;
+        }
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            border-radius: 10px;
+        }
+        .yes-container {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .yes-button {
+            background: red;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="https://imgur.com/ggPi0OI.jpg" alt="Slide 1">
+            <div class="text">Hey, it's TK</div>
+        </div>
+        <div class="slide">
+            <img src="https://imgur.com/bmJxVdl.jpg" alt="Slide 2">
+            <div class="text">There is a special day coming up and I was wondering...</div>
+        </div>
+        <div class="slide">
+            <img src="https://imgur.com/DKgrqOQ.jpg" alt="Slide 3">
+            <div class="text">Will you be my Valentine?</div>
+        </div>
+        <div class="slide">
+            <img src="https://imgur.com/11HPG9m.jpg" alt="Slide 4">
+            <div class="text">Yes or Yes?</div>
+            <div class="yes-container">
+                <button class="yes-button">YES</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlide() {
+            slides.forEach(slide => slide.style.display = "none");
+            slides[currentSlide].style.display = "block";
+            if (currentSlide === slides.length - 1) {
+                document.querySelector('.yes-container').style.display = "block";
+            }
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+        showSlide();
+        setInterval(showSlide, 3000);
+    </script>
+
+</body>
+</html>
